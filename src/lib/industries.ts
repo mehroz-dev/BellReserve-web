@@ -4,6 +4,9 @@ export type Industry = {
   slug: string;
   label: string;
   navLabel: string;
+  /** Card photo (Unsplash) and short tags for the landing-page carousel. */
+  photo: string;
+  tags: string[];
   kicker: string;
   headline: string;
   body: string;
@@ -28,6 +31,8 @@ export const industries: Industry[] = [
   {
     slug: "restaurants",
     label: "Restaurants",
+    photo: "https://images.unsplash.com/photo-1779591211593-0d43f83540d6",
+    tags: ["Reservations", "Orders", "Customer Support"],
     navLabel: "Restaurants",
     kicker: "Restaurants · Cloud kitchens",
     headline: "Full tables and full order tickets, even mid-rush.",
@@ -67,6 +72,8 @@ export const industries: Industry[] = [
   {
     slug: "hvac",
     label: "HVAC",
+    photo: "https://images.unsplash.com/photo-1792799888905-8696bd32a11a",
+    tags: ["Scheduling", "Emergency Calls", "Dispatch"],
     navLabel: "HVAC & home services",
     kicker: "HVAC · Home services",
     headline: "Every emergency call answered. Every job booked.",
@@ -106,6 +113,8 @@ export const industries: Industry[] = [
   {
     slug: "dental",
     label: "Dental",
+    photo: "https://images.unsplash.com/photo-1588776814546-daab30f310ce",
+    tags: ["Appointments", "New Patients", "Reminders"],
     navLabel: "Dental clinics",
     kicker: "Dental clinics",
     headline: "New patients booked before they call the next clinic.",
@@ -145,6 +154,8 @@ export const industries: Industry[] = [
   {
     slug: "real-estate",
     label: "Real Estate",
+    photo: "https://images.unsplash.com/photo-1772987438485-ac832640c8a5",
+    tags: ["Lead Capture", "Property Viewings", "Follow-ups"],
     navLabel: "Real estate",
     kicker: "Agents · Brokerages",
     headline: "Every buyer lead captured while it’s still hot.",
@@ -184,6 +195,8 @@ export const industries: Industry[] = [
   {
     slug: "front-desks",
     label: "Front Desks",
+    photo: "https://images.unsplash.com/photo-1660557989695-14fac79c086d",
+    tags: ["Call Routing", "Messages", "FAQs"],
     navLabel: "Front desks",
     kicker: "Clinics · Salons · Offices",
     headline: "A front desk that answers, routes and schedules.",

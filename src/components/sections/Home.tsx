@@ -8,6 +8,7 @@ import {
   File,
   Link2,
   Lock,
+  Mail,
   Message,
   Phone,
   Play,
@@ -19,7 +20,7 @@ import {
 } from "@/components/icons";
 import { Cube, Pin, Sphere, Wave } from "@/components/vectors";
 import { plans, site, testimonials } from "@/lib/site";
-import { IndustryTabs } from "./IndustryTabs";
+import { IndustryCarousel } from "./IndustryCarousel";
 
 /* ---------------- shared ---------------- */
 
@@ -94,10 +95,10 @@ export function MeetAgent() {
   ];
   return (
     <section className="sec">
-      <div className="wrap grid items-center gap-16 lg:grid-cols-2">
-        <div className="relative">
+      <div className="wrap grid items-stretch gap-16 lg:grid-cols-2">
+        <div className="relative flex flex-col">
           <div className="glow" style={{ width: 460, height: 460, left: "10%", top: 0, background: "var(--glow)" }} />
-          <div className="deep relative flex flex-col gap-6 overflow-hidden rounded-[36px] border border-white/[0.08] p-10 max-sm:p-6" style={{ boxShadow: "0 34px 70px -36px rgba(10,30,120,0.35)" }}>
+          <div className="deep relative flex flex-1 flex-col gap-5 overflow-hidden rounded-[36px] border border-white/[0.08] p-8 max-sm:p-6" style={{ boxShadow: "0 34px 70px -36px rgba(10,30,120,0.35)" }}>
             <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(90% 60% at 100% 0%, rgba(37,99,255,0.45) 0%, rgba(37,99,255,0) 60%)" }} />
             <div className="relative flex items-center gap-[18px]">
               <div className="relative h-24 w-24 flex-none" aria-hidden="true">
@@ -111,7 +112,7 @@ export function MeetAgent() {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="mono muted-d text-xs uppercase tracking-[0.1em]">Your agent</span>
-                <span className="font-serif text-[30px] font-bold leading-[1.1]">
+                <span className="font-serif text-[30px] font-medium leading-[1.1]">
                   Your name.
                   <br />
                   Your voice.
@@ -125,6 +126,31 @@ export function MeetAgent() {
                   <span className="text-[15.5px] font-medium">{v}</span>
                 </div>
               ))}
+            </div>
+            <div className="deep-glass relative flex flex-1 flex-col gap-3 rounded-[22px] p-4">
+              <div className="mono muted-d flex items-center justify-between text-[11.5px] uppercase tracking-[0.08em]">
+                <span>Today on the line</span>
+                <span className="flex items-center gap-2 text-white/80">
+                  <span className="live-dot block h-1.5 w-1.5 rounded-full bg-[#ff4d4d]" />
+                  Live
+                </span>
+              </div>
+              <div className="grid grid-cols-3 gap-2.5">
+                {[
+                  ["48", "Calls answered"],
+                  ["19", "Booked"],
+                  ["0", "Missed"],
+                ].map(([n, l]) => (
+                  <div key={l} className="flex flex-col gap-0.5 rounded-[14px] border border-white/[0.07] bg-white/[0.03] px-3.5 py-3">
+                    <span className="font-serif text-[26px] font-medium leading-8">{n}</span>
+                    <span className="muted-d text-[12.5px]">{l}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-auto flex flex-col gap-2 text-[14px]">
+                <div className="max-w-[85%] self-start rounded-[14px] rounded-bl-[4px] bg-white/[0.07] px-3.5 py-2.5">Do you have anything this Thursday?</div>
+                <div className="max-w-[85%] self-end rounded-[14px] rounded-br-[4px] bg-brand px-3.5 py-2.5 text-white">Thursday at 10:30 is open. Shall I book it?</div>
+              </div>
             </div>
             <div className="relative flex items-center gap-3.5 rounded-full bg-white py-2 pl-5 pr-2 text-black">
               <div className="flex flex-1 flex-col">
@@ -148,9 +174,9 @@ export function MeetAgent() {
             }
             lead="Not a generic chatbot reading one script for every business. Your agent is trained on how your business actually works, then answers like your best receptionist on their best day."
           />
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-1 flex-col gap-3">
             {points.map(([t, b], i) => (
-              <div key={t} className="flex items-start gap-4 rounded-[20px] border border-[var(--border)] bg-[var(--glass)] px-5 py-[18px]">
+              <div key={t} className="flex flex-1 items-center gap-4 rounded-[20px] border border-[var(--border)] bg-[var(--glass)] px-5 py-[18px]">
                 <span className="mono pt-0.5 text-[13px] font-medium text-[var(--accent-text)]">0{i + 1}</span>
                 <div className="flex flex-col gap-1">
                   <span className="text-[17px] font-semibold">{t}</span>
@@ -169,21 +195,16 @@ export function MeetAgent() {
 
 export function IndustriesSection() {
   return (
-    <section id="industries" className="sec !py-12 max-md:!px-3">
-      <div className="deep relative mx-auto max-w-[1392px] overflow-hidden rounded-[48px] border border-[var(--deep-border)] px-8 py-28 max-md:rounded-[32px] max-md:px-5 max-md:py-20">
-        <div className="glow" style={{ width: 900, height: 600, left: "50%", marginLeft: -450, top: -320, background: "rgba(37,99,255,0.45)" }} />
-        <div className="floor h-[40%] opacity-80" style={{ ["--grid-line" as string]: "rgba(110,150,255,0.18)" }} />
-        <div className="wrap flex flex-col gap-11">
-          <div className="flex flex-col items-center gap-5 text-center">
-            <span className="eyebrow center">Trained for your niche</span>
-            <h2 className="h2 max-w-[900px]">
-              One agent can&apos;t fit every business.{" "}
-              <span style={{ background: "linear-gradient(100deg,#8DADFF,#E1E9FF)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Yours is built for yours.</span>
-            </h2>
-          </div>
-          <IndustryTabs />
-        </div>
-      </div>
+    <section id="industries" className="sec">
+      <IndustryCarousel
+        heading={
+          <>
+            One receptionist.
+            <br />
+            Every kind of <span className="grad-text italic">call.</span>
+          </>
+        }
+      />
     </section>
   );
 }
@@ -397,7 +418,7 @@ export function DashboardPreview() {
                       <circle cx="60" cy="60" r="50" fill="none" stroke="#FFFFFF" strokeWidth="16" />
                     </svg>
                     <span className="mono text-[11.5px] uppercase tracking-[0.08em]">Revenue recovered</span>
-                    <span className="font-serif text-[38px] font-bold leading-none">$18,420</span>
+                    <span className="font-serif text-[38px] font-medium leading-none">$18,420</span>
                     <span className="text-[13.5px]">From after-hours and overflow calls</span>
                   </div>
                   {[
@@ -407,7 +428,7 @@ export function DashboardPreview() {
                   ].map(([k, v, s]) => (
                     <div key={k} className="flex flex-col gap-2 rounded-[20px] border border-[var(--border)] bg-[var(--surface-2)] p-[22px]">
                       <span className="mono text-[11.5px] uppercase tracking-[0.08em] text-[var(--faint)]">{k}</span>
-                      <span className="font-serif text-[38px] font-bold leading-none">{v}</span>
+                      <span className="font-serif text-[38px] font-medium leading-none">{v}</span>
                       <span className="text-[13.5px] text-[var(--faint)]">{s}</span>
                     </div>
                   ))}
@@ -574,7 +595,6 @@ export function Testimonials() {
 export function Pricing() {
   return (
     <section id="pricing" className="sec soft-alt">
-      <div className="dots opacity-80" />
       <div className="glow" style={{ width: 700, height: 500, left: "50%", marginLeft: -350, top: 300, background: "var(--glow-2)" }} />
       <div className="wrap flex flex-col gap-14">
         <SectionHead
@@ -617,7 +637,7 @@ function PlanBody({ plan, dark = false }: { plan: (typeof plans)[number]; dark?:
         <span className={`text-[15px] ${dark ? "text-white/75" : "text-[var(--muted)]"}`}>{plan.blurb}</span>
       </div>
       <div className="relative flex items-baseline gap-1.5">
-        <span className="font-serif text-[58px] font-bold leading-none tracking-[-0.02em]">{plan.price}</span>
+        <span className="font-serif text-[58px] font-medium leading-none tracking-[-0.02em]">{plan.price}</span>
         {plan.period ? <span className={dark ? "text-white/75" : "text-[var(--muted)]"}>{plan.period}</span> : null}
       </div>
       <Link href={`/book-demo?plan=${plan.name.toLowerCase()}`} className={`btn relative ${dark ? "btn-primary" : "btn-ghost"}`}>
@@ -673,7 +693,7 @@ export function Faq({ items, title }: { items: { q: string; a: string }[]; title
   return (
     <section id="faq" className="sec">
       <div className="wrap grid items-start gap-16 lg:grid-cols-[1fr_1.3fr]">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 lg:sticky lg:top-28">
           <span className="eyebrow">FAQ</span>
           <h2 className="h2">
             {title ?? (
@@ -689,6 +709,7 @@ export function Faq({ items, title }: { items: { q: string; a: string }[]; title
             </a>{" "}
             or book a 20-minute demo.
           </p>
+          <FaqHelpCard />
         </div>
         <div className="flex flex-col gap-2.5">
           {items.map((f, i) => (
@@ -708,35 +729,82 @@ export function Faq({ items, title }: { items: { q: string; a: string }[]; title
   );
 }
 
+function FaqHelpCard() {
+  return (
+    <div className="mt-4 overflow-hidden rounded-[28px] border border-[var(--border)] bg-[var(--surface)]">
+      <div aria-hidden="true" className="relative h-[230px] overflow-hidden border-b border-[var(--border)] bg-[var(--surface-2)]">
+        <div className="floor h-[60%]" />
+        <Sphere size={92} className="fl absolute -right-3 top-5" />
+        <Cube size={64} className="fl2 absolute bottom-3 left-4" />
+        <div className="relative flex h-full flex-col justify-center gap-3 px-7 max-sm:px-5">
+          <div className="max-w-[78%] self-end rounded-[18px] rounded-br-md bg-brand px-4 py-2.5 text-[14.5px] text-white shadow-lg max-sm:max-w-[88%]">
+            Can it take my booking at 11 PM?
+          </div>
+          <div className="glass flex max-w-[82%] items-center gap-3 self-start rounded-[18px] rounded-bl-md border border-[var(--glass-border)] px-4 py-2.5 text-[14.5px] shadow-lg backdrop-blur-md max-sm:max-w-[92%]">
+            <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[var(--chip-bg)] text-[var(--accent-text)]">
+              <Phone size={15} />
+            </span>
+            <span>Of course. What time works for you?</span>
+            <Wave count={5} height={18} />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-1 p-3">
+        <a href={`mailto:${site.email}`} className="flex items-center gap-3.5 rounded-[16px] px-3 py-3 transition-colors hover:bg-[var(--chip-bg)]">
+          <span className="icon-tile h-10 w-10 rounded-[12px]">
+            <Mail size={18} />
+          </span>
+          <span className="flex flex-col">
+            <span className="text-[13px] text-[var(--muted)]">Email us, we reply within a day</span>
+            <span className="font-semibold">{site.email}</span>
+          </span>
+        </a>
+        <a href={site.demoPhone.href} className="flex items-center gap-3.5 rounded-[16px] px-3 py-3 transition-colors hover:bg-[var(--chip-bg)]">
+          <span className="icon-tile ink h-10 w-10 rounded-[12px]">
+            <Phone size={18} />
+          </span>
+          <span className="flex flex-col">
+            <span className="text-[13px] text-[var(--muted)]">Ask our demo agent yourself</span>
+            <span className="font-semibold">{site.demoPhone.display}</span>
+          </span>
+        </a>
+        <Link href="/book-demo" className="btn btn-primary mx-3 mb-2 mt-2">
+          Book a 20-minute demo
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 /* ---------------- final CTA ---------------- */
 
 export function FinalCta({ title = "Your phone will ring today. Make sure someone answers." }: { title?: string }) {
   return (
-    <section className="relative px-6 pb-[120px] pt-6 max-md:px-3">
+    <section className="relative pb-16 pt-6">
       <div
-        className="wrap flex flex-col items-center gap-7 overflow-hidden rounded-[44px] px-12 py-24 text-center text-white max-md:rounded-[32px] max-md:px-6 max-md:py-20"
-        style={{ background: "radial-gradient(120% 120% at 50% 0%, #3E77FF 0%, #2563FF 35%, #123A9E 75%, #071A52 100%)", boxShadow: "0 40px 80px -40px rgba(37,99,255,0.45)" }}
+        className="relative flex w-full flex-col items-center gap-5 overflow-hidden px-6 py-16 text-center text-white max-md:py-14"
+        style={{ background: "radial-gradient(80% 120% at 50% 0%, #3E77FF 0%, #2563FF 35%, #123A9E 75%, #071A52 100%)" }}
       >
-        <div className="floor h-[55%]" style={{ ["--grid-line" as string]: "rgba(255,255,255,0.16)" }} />
-        <Sphere size={160} className="fl absolute left-[4%] top-[12%] max-md:hidden" />
-        <svg className="fl2 absolute bottom-[12%] right-[5%] max-md:hidden" width="150" height="160" viewBox="0 0 150 160" aria-hidden="true">
+        <div className="floor h-[45%]" style={{ ["--grid-line" as string]: "rgba(255,255,255,0.16)" }} />
+        <Sphere size={110} className="fl absolute left-[5%] top-[14%] max-md:hidden" />
+        <svg className="fl2 absolute bottom-[14%] right-[6%] max-md:hidden" width="100" height="107" viewBox="0 0 150 160" aria-hidden="true">
           <polygon points="75,10 135,44 75,78 15,44" fill="#FFFFFF" fillOpacity="0.9" />
           <polygon points="15,44 75,78 75,140 15,106" fill="#C9D8FF" />
           <polygon points="135,44 75,78 75,140 135,106" fill="#8DADFF" />
         </svg>
-        <svg className="fl2 absolute right-[12%] top-[8%] max-md:hidden" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+        <svg className="fl2 absolute right-[13%] top-[12%] max-md:hidden" width="90" height="90" viewBox="0 0 120 120" aria-hidden="true">
           <ellipse cx="60" cy="60" rx="50" ry="20" fill="none" stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="10" transform="rotate(-25 60 60)" />
         </svg>
         <span className="mono relative rounded-full border border-white/30 bg-white/15 px-3.5 py-[7px] text-[13px] font-medium uppercase tracking-[0.1em]">Never miss another call</span>
-        <h2 className="relative max-w-[920px] font-serif text-[clamp(40px,5.4vw,74px)] font-bold leading-[1.02] tracking-[-0.025em]">{title}</h2>
-        <p className="relative max-w-[620px] text-[19px] leading-[29px]">
+        <h2 className="relative max-w-[820px] font-serif text-[clamp(34px,4.2vw,56px)] font-medium leading-[1.05] tracking-[-0.025em]">{title}</h2>
+        <p className="relative max-w-[580px] text-[17.5px] leading-[27px] text-white/85">
           Book a 20-minute demo. We&apos;ll show you your agent handling real calls for your industry, and get you live in days.
         </p>
-        <div className="relative flex flex-wrap justify-center gap-3">
-          <Link href="/book-demo" className="btn btn-light btn-lg">
+        <div className="relative mt-1 flex flex-wrap justify-center gap-3">
+          <Link href="/book-demo" className="btn btn-light">
             Book a demo
           </Link>
-          <a href={site.demoPhone.href} className="btn btn-dark btn-lg">
+          <a href={site.demoPhone.href} className="btn btn-dark">
             Call our agent now
           </a>
         </div>

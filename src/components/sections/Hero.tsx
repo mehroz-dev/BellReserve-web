@@ -10,15 +10,15 @@ export function Hero() {
       <div className="glow" style={{ width: 720, height: 720, left: -260, top: -280, background: "var(--glow-2)" }} />
       <div className="glow" style={{ width: 760, height: 760, right: -200, top: 40, background: "var(--glow)" }} />
       <div className="floor" />
-      <div className="dots opacity-80" />
 
       <div className="wrap grid items-center gap-14 lg:grid-cols-2">
         <div className="relative z-[2] flex flex-col gap-7">
           <span className="eyebrow">AI calling agent · Answering 24/7</span>
-          <h1 className="h1">
-            Your phone rang.
-            <br />
-            <span className="grad-text">We answered.</span>
+          <h1 className="h1 !text-[clamp(42px,5vw,78px)] !leading-[1.04] !tracking-[-0.025em]">
+            <span className="block sm:whitespace-nowrap">Your phone rang.</span>
+            <span className="block sm:whitespace-nowrap">
+              We <em className="grad-text pr-[0.08em] font-normal">answered.</em>
+            </span>
           </h1>
           <p className="lead max-w-[540px] text-[20px] leading-[31px]">
             BellReserve is an AI calling agent trained for your business. It answers every call, books appointments and captures leads around the
@@ -103,7 +103,7 @@ export function Hero() {
           <FloatCard ink className="fl bottom-[-18px] right-[-60px] [animation-delay:-3s]" icon={<Message size={20} />} title="Customer confirmed" sub="SMS sent automatically" />
           <div className="glass fl2 absolute bottom-[150px] left-[-12px] z-[3] flex max-sm:hidden min-w-[210px] flex-col gap-1.5 rounded-[18px] px-4 py-3">
             <span className="mono text-[11px] uppercase tracking-[0.08em] text-[var(--faint)]">Revenue saved tonight</span>
-            <span className="font-serif text-[28px] font-bold leading-none">+ $1,240</span>
+            <span className="font-serif text-[28px] font-medium leading-none">+ $1,240</span>
             <span className="flex items-center gap-1.5 text-[12.5px] text-[var(--muted)]">
               <span className="block h-1.5 w-1.5 rounded-full bg-brand" />8 after-hours calls answered
             </span>

@@ -2,11 +2,15 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
+import "@fontsource/ibm-plex-serif/400.css";
+import "@fontsource/ibm-plex-serif/400-italic.css";
 import "@fontsource/ibm-plex-serif/500.css";
+import "@fontsource/ibm-plex-serif/500-italic.css";
 import "@fontsource/ibm-plex-serif/600.css";
-import "@fontsource/ibm-plex-serif/700.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
+import "@fontsource/ibm-plex-mono/600.css";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: dark)", color: "#070a12" },
   ],
 };
 

@@ -15,7 +15,6 @@ export default function BookDemoPage() {
   return (
     <section className="sec relative !pt-20">
       <div className="glow" style={{ width: 760, height: 620, left: -260, top: -120, background: "var(--glow)" }} />
-      <div className="dots opacity-70" />
       <div className="wrap grid items-start gap-14 lg:grid-cols-[1fr_1.15fr]">
         <div className="relative flex flex-col gap-7 lg:sticky lg:top-28">
           <span className="eyebrow">Book a demo</span>

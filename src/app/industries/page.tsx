@@ -15,7 +15,6 @@ export default function IndustriesIndex() {
     <>
       <section className="sec relative">
         <div className="glow" style={{ width: 760, height: 560, right: -200, top: -160, background: "var(--glow)" }} />
-        <div className="dots opacity-70" />
         <div className="wrap flex flex-col gap-12">
           <SectionHead
             eyebrow="Industries"

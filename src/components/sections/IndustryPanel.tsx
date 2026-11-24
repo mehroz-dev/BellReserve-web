@@ -10,7 +10,7 @@ export function IndustryPanel({ industry, showLink = true }: { industry: Industr
       <div className="relative flex flex-col gap-5 overflow-hidden rounded-[32px] bg-white p-10 text-black max-sm:p-7" style={{ boxShadow: "0 40px 80px -40px rgba(37,99,255,0.3)" }}>
         <Cube size={170} className="pointer-events-none absolute -right-5 -top-4 opacity-95" />
         <span className="mono text-[12.5px] uppercase tracking-[0.1em] text-brand">{industry.kicker}</span>
-        <h3 className="max-w-[380px] font-serif text-[34px] font-bold leading-10 max-sm:text-[28px] max-sm:leading-9">{industry.headline}</h3>
+        <h3 className="max-w-[380px] font-serif text-[34px] font-medium leading-10 max-sm:text-[28px] max-sm:leading-9">{industry.headline}</h3>
         <p className="text-[17px] leading-[27px] text-black/70">{industry.body}</p>
         <div className="grid gap-2.5 sm:grid-cols-2">
           {industry.handles.map((h) => (

@@ -18,7 +18,6 @@ export function Calculator() {
 
   return (
     <section id="calculator" className="sec">
-      <div className="dots opacity-70" />
       <div className="wrap grid items-center gap-16 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
           <span className="eyebrow">What missed calls cost you</span>
@@ -58,7 +57,7 @@ export function Calculator() {
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-                <span className="font-serif text-[52px] font-bold leading-none tracking-[-0.02em]">${fmt(monthly)}</span>
+                <span className="font-serif text-[52px] font-medium leading-none tracking-[-0.02em]">${fmt(monthly)}</span>
                 <span className="text-[15px] text-white/70">per month</span>
               </div>
             </div>

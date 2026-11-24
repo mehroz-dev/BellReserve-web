@@ -38,7 +38,6 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
         <div className="glow" style={{ width: 760, height: 620, right: -220, top: -120, background: "var(--glow)" }} />
         <div className="glow" style={{ width: 600, height: 600, left: -260, top: 120, background: "var(--glow-2)" }} />
         <div className="floor" />
-        <div className="dots opacity-70" />
         <div className="wrap relative grid items-center gap-12 lg:grid-cols-[1.3fr_1fr]">
           <div className="relative z-[2] flex flex-col gap-7">
             <nav aria-label="Breadcrumb" className="mono text-[12.5px] uppercase tracking-[0.08em] text-[var(--faint)]">
@@ -105,7 +104,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
 
       {/* Live example */}
       <section className="sec !py-12 max-md:!px-3">
-        <div className="deep relative mx-auto max-w-[1392px] overflow-hidden rounded-[48px] border border-[var(--deep-border)] px-8 py-24 max-md:rounded-[32px] max-md:px-5 max-md:py-16">
+        <div className="deep relative mx-auto max-w-[calc(var(--wrap)+152px)] overflow-hidden rounded-[48px] border border-[var(--deep-border)] px-8 py-24 max-md:rounded-[32px] max-md:px-5 max-md:py-16">
           <div className="glow" style={{ width: 900, height: 600, left: "50%", marginLeft: -450, top: -320, background: "rgba(37,99,255,0.45)" }} />
           <div className="wrap flex flex-col gap-11">
             <div className="flex flex-col items-center gap-5 text-center">
