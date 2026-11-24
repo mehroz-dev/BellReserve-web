@@ -1,0 +1,46 @@
+/* Animated dashboard mock (DashboardDemo.tsx).
+   data-state: static = no animation (server render, reduced motion),
+   wait = hydrated but off screen (hidden, ready to play), run = playing. */
+
+@keyframes dash-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dash-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes dash-pop {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dash-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes dash-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes dash-live {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 6px transparent; }
+}
+
+.dash-grow { transform-origin: bottom; }
+.dash-fill { transform-origin: left; }
+.dash-progress { transform-origin: left; animation: dash-progress var(--dur) linear both; }
+.dash-live { color: inherit; animation: dash-live 1.6s ease-out infinite; }
+
+.dash[data-state="wait"] :is(.dash-in, .dash-pop) { opacity: 0; }
+.dash[data-state="wait"] .dash-grow { transform: scaleY(0); }
+.dash[data-state="wait"] .dash-fill { transform: scaleX(0); }
+
+.dash[data-state="run"] .dash-in { animation: dash-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.dash[data-state="run"] .dash-grow { animation: dash-grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.dash[data-state="run"] .dash-pop { animation: dash-pop 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.dash[data-state="run"] .dash-fill { animation: dash-fill 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-live, .dash-progress { animation: none; }
+}

@@ -4,16 +4,12 @@ import {
   CalendarCheck,
   Calendar,
   Check,
-  CheckSquare,
-  File,
   Link2,
-  Lock,
   Mail,
   Message,
   Phone,
   Play,
   Plus,
-  Shield,
   User,
   UserPlus,
   Users,
@@ -21,6 +17,7 @@ import {
 import { Cube, Pin, Sphere, Wave } from "@/components/vectors";
 import { plans, site, testimonials } from "@/lib/site";
 import { IndustryCarousel } from "./IndustryCarousel";
+import { DashboardDemo } from "./DashboardDemo";
 
 /* ---------------- shared ---------------- */
 
@@ -95,7 +92,7 @@ export function MeetAgent() {
   ];
   return (
     <section className="sec">
-      <div className="wrap grid items-stretch gap-16 lg:grid-cols-2">
+      <div className="wrap grid items-stretch gap-16 lg:grid-cols-[2fr_3fr]">
         <div className="relative flex flex-col">
           <div className="glow" style={{ width: 460, height: 460, left: "10%", top: 0, background: "var(--glow)" }} />
           <div className="deep relative flex flex-1 flex-col gap-5 overflow-hidden rounded-[36px] border border-white/[0.08] p-8 max-sm:p-6" style={{ boxShadow: "0 34px 70px -36px rgba(10,30,120,0.35)" }}>
@@ -195,7 +192,7 @@ export function MeetAgent() {
 
 export function IndustriesSection() {
   return (
-    <section id="industries" className="sec">
+    <section id="industries" data-theme="dark" className="sec dark-band">
       <IndustryCarousel
         heading={
           <>
@@ -370,18 +367,8 @@ export function Features() {
 /* ---------------- dashboard preview ---------------- */
 
 export function DashboardPreview() {
-  const bars = [
-    [22, true], [38, true], [72, false], [88, false], [64, false], [96, false],
-    [80, false], [58, false], [54, true], [44, true], [26, true], [14, true],
-  ] as const;
-  const calls = [
-    ["11:48 PM", "New patient · cleaning booked", "Booked"],
-    ["9:12 PM", "Insurance question · answered", "FAQ"],
-    ["4:30 PM", "Toothache · transferred to front desk", "Handover"],
-    ["2:05 PM", "Rescheduled · Thu 10:00 AM", "Booked"],
-  ];
   return (
-    <section className="sec soft-alt">
+    <section data-theme="dark" className="sec dark-band">
       <div className="glow" style={{ width: 1000, height: 600, left: "50%", marginLeft: -500, top: 240, background: "var(--glow)" }} />
       <div className="wrap flex flex-col gap-[60px]">
         <SectionHead
@@ -394,101 +381,7 @@ export function DashboardPreview() {
           }
           lead="Calls answered, bookings made and revenue saved, in one place your whole team can check in seconds."
         />
-        <div className="tilt-board">
-          <div className="glass rounded-[30px] p-2.5">
-            <div className="overflow-hidden rounded-[22px] border border-[var(--border)] bg-[var(--surface)]">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] px-[22px] py-3.5">
-                <div className="flex items-center gap-3">
-                  <span className="flex gap-1.5" aria-hidden="true">
-                    {[0, 1, 2].map((d) => (
-                      <span key={d} className="block h-2.5 w-2.5 rounded-full bg-[var(--border-strong)]" />
-                    ))}
-                  </span>
-                  <span className="ml-2 text-[15px] font-semibold">Harbor Dental · Overview</span>
-                </div>
-                <div className="mono flex gap-1.5 text-[11.5px] uppercase tracking-[0.05em]">
-                  <span className="rounded-full bg-brand px-3 py-2 text-white">This month</span>
-                  <span className="rounded-full border border-[var(--border-strong)] px-3 py-2">Last month</span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-[18px] p-[22px]">
-                <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="relative flex flex-col gap-2 overflow-hidden rounded-[20px] p-[22px] text-white shadow-[0_20px_40px_-20px_rgba(37,99,255,0.4)]" style={{ background: "linear-gradient(140deg,#4A80FF,#2563FF 50%,#163FB8)" }}>
-                    <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" className="absolute -right-[30px] -top-[30px] opacity-35">
-                      <circle cx="60" cy="60" r="50" fill="none" stroke="#FFFFFF" strokeWidth="16" />
-                    </svg>
-                    <span className="mono text-[11.5px] uppercase tracking-[0.08em]">Revenue recovered</span>
-                    <span className="font-serif text-[38px] font-medium leading-none">$18,420</span>
-                    <span className="text-[13.5px]">From after-hours and overflow calls</span>
-                  </div>
-                  {[
-                    ["Calls answered", "1,284", "0 sent to voicemail"],
-                    ["Bookings made", "312", "96 new patients"],
-                    ["After-hours calls", "417", "32% of all calls"],
-                  ].map(([k, v, s]) => (
-                    <div key={k} className="flex flex-col gap-2 rounded-[20px] border border-[var(--border)] bg-[var(--surface-2)] p-[22px]">
-                      <span className="mono text-[11.5px] uppercase tracking-[0.08em] text-[var(--faint)]">{k}</span>
-                      <span className="font-serif text-[38px] font-medium leading-none">{v}</span>
-                      <span className="text-[13.5px] text-[var(--faint)]">{s}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid gap-3.5 lg:grid-cols-2">
-                  <div className="flex flex-col gap-4 rounded-[20px] border border-[var(--border)] bg-[var(--surface-2)] p-[22px]">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-base font-semibold">Calls by hour</span>
-                      <span className="flex gap-3.5 text-[13px] text-[var(--muted)]">
-                        <span className="flex items-center gap-1.5">
-                          <span className="block h-2.5 w-2.5 rounded-[3px] bg-[var(--text)]" />
-                          Open hours
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <span className="block h-2.5 w-2.5 rounded-[3px] bg-brand" />
-                          After hours
-                        </span>
-                      </span>
-                    </div>
-                    <div aria-hidden="true" className="flex h-[150px] items-end gap-2 border-b border-[var(--border-strong)]">
-                      {bars.map(([h, after], i) => (
-                        <span
-                          key={i}
-                          className="block flex-1 rounded-t-[7px]"
-                          style={{ height: `${h}%`, background: after ? "linear-gradient(180deg,#6C93FF,#2563FF)" : "var(--text)" }}
-                        />
-                      ))}
-                    </div>
-                    <div className="mono flex justify-between text-[11.5px] text-[var(--faint)]">
-                      <span>6 AM</span>
-                      <span>12 PM</span>
-                      <span>6 PM</span>
-                      <span>12 AM</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col rounded-[20px] border border-[var(--border)] bg-[var(--surface-2)] p-[22px]">
-                    <span className="pb-2.5 text-base font-semibold">Recent calls</span>
-                    {calls.map(([t, d, tag]) => (
-                      <div key={t} className="flex items-center gap-3 border-t border-[var(--border)] py-3">
-                        <span className="mono w-16 flex-none text-xs text-[var(--faint)]">{t}</span>
-                        <span className="flex-1 text-[15px]">{d}</span>
-                        <span
-                          className={`mono rounded-full px-2.5 py-1 text-[10.5px] uppercase tracking-[0.05em] ${
-                            tag === "Booked"
-                              ? "border border-[var(--chip-border)] bg-[var(--chip-bg)] text-[var(--accent-text)]"
-                              : tag === "Handover"
-                                ? "bg-[var(--text)] text-[var(--bg)]"
-                                : "border border-[var(--border-strong)]"
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DashboardDemo />
         <p className="text-center text-[13px] text-[var(--faint)]">Illustrative sample data.</p>
       </div>
     </section>
@@ -499,12 +392,12 @@ export function DashboardPreview() {
 
 export function Integrations() {
   const chips = [
-    { label: "Your existing number", icon: <Phone size={16} />, pos: "left-[4%] top-[12%]", cls: "fl" },
-    { label: "Google Calendar", icon: <Calendar size={16} />, pos: "right-[2%] top-[6%]", cls: "fl2" },
-    { label: "Outlook", icon: <Calendar size={16} />, pos: "right-[-2%] top-[46%]", cls: "fl [animation-delay:-2s]" },
-    { label: "Webhooks & Zapier", icon: <Link2 size={16} />, pos: "right-[12%] bottom-[4%]", cls: "fl2" },
-    { label: "Your CRM", icon: <UserPlus size={16} />, pos: "left-[6%] bottom-[8%]", cls: "fl [animation-delay:-4s]" },
-    { label: "SMS", icon: <Message size={16} />, pos: "left-[-2%] top-[46%]", cls: "fl2 [animation-delay:-3s]" },
+    { label: "Your existing number", icon: <Phone size={16} />, pos: "left-[21.6%] top-[21.3%]", cls: "fl" },
+    { label: "Google Calendar", icon: <Calendar size={16} />, pos: "left-[78.4%] top-[21.3%]", cls: "fl2" },
+    { label: "Outlook", icon: <Calendar size={16} />, pos: "left-[90.2%] top-[50%]", cls: "fl [animation-delay:-2s]" },
+    { label: "Webhooks & Zapier", icon: <Link2 size={16} />, pos: "left-[78.4%] top-[78.7%]", cls: "fl2" },
+    { label: "Your CRM", icon: <UserPlus size={16} />, pos: "left-[21.6%] top-[78.7%]", cls: "fl [animation-delay:-4s]" },
+    { label: "SMS", icon: <Message size={16} />, pos: "left-[9.8%] top-[50%]", cls: "fl2 [animation-delay:-3s]" },
   ];
   return (
     <section className="sec !py-24">
@@ -518,17 +411,17 @@ export function Integrations() {
           }
           lead="Bookings land where your team already looks. Need something else connected? We handle it during setup."
         />
-        <div className="relative h-[360px] max-sm:hidden">
-          <div className="glow" style={{ width: 300, height: 300, left: "50%", top: "50%", margin: "-150px 0 0 -150px", background: "var(--glow)" }} />
-          <svg width="100%" height="360" viewBox="0 0 560 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true" className="absolute inset-0">
-            <ellipse cx="280" cy="180" rx="230" ry="140" fill="none" stroke="var(--border-strong)" strokeDasharray="4 7" />
-            <ellipse cx="280" cy="180" rx="140" ry="86" fill="none" stroke="var(--border-strong)" strokeDasharray="4 7" />
+        <div className="relative h-[480px] max-sm:hidden">
+          <div className="glow" style={{ width: 400, height: 400, left: "50%", top: "50%", margin: "-200px 0 0 -200px", background: "var(--glow)" }} />
+          <svg width="100%" height="100%" viewBox="0 0 560 480" preserveAspectRatio="none" aria-hidden="true" className="absolute inset-0">
+            <ellipse cx="280" cy="240" rx="225" ry="195" fill="none" stroke="var(--border-strong)" strokeDasharray="4 7" vectorEffect="non-scaling-stroke" />
+            <ellipse cx="280" cy="240" rx="145" ry="126" fill="none" stroke="var(--border-strong)" strokeDasharray="4 7" vectorEffect="non-scaling-stroke" />
           </svg>
-          <div className="absolute left-1/2 top-1/2 -ml-14 -mt-14 flex h-28 w-28 items-center justify-center rounded-[32px] bg-white shadow-[0_30px_60px_-20px_rgba(37,99,255,0.35),0_0_0_1px_rgba(37,99,255,0.1)]">
-            <Image src="/brand/bellreserve-icon.png" alt="BellReserve" width={64} height={64} />
+          <div className="absolute left-1/2 top-1/2 -ml-[76px] -mt-[76px] flex h-[152px] w-[152px] items-center justify-center rounded-[42px] bg-white shadow-[0_30px_60px_-20px_rgba(37,99,255,0.35),0_0_0_1px_rgba(37,99,255,0.1)]">
+            <Image src="/brand/bellreserve-icon.png" alt="BellReserve" width={88} height={88} />
           </div>
           {chips.map((c) => (
-            <span key={c.label} className={`glass absolute flex items-center gap-2 rounded-full px-4 py-[11px] text-[14.5px] font-medium ${c.pos} ${c.cls}`}>
+            <span key={c.label} className={`glass absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full px-4 py-[11px] text-[14.5px] font-medium ${c.pos} ${c.cls}`}>
               <span className="text-brand">{c.icon}</span>
               {c.label}
             </span>
@@ -550,6 +443,9 @@ export function Integrations() {
 /* ---------------- testimonials ---------------- */
 
 export function Testimonials() {
+  // Four copies of the list: the track moves left by half its width (two copies), so the loop is seamless
+  // and the row is always wider than the screen.
+  const copies = 4;
   return (
     <section className="sec">
       <div className="wrap flex flex-col gap-14">
@@ -561,29 +457,39 @@ export function Testimonials() {
             </>
           }
         />
-        <div className="grid gap-5 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <figure
-              key={t.name}
-              className={`relative m-0 flex flex-col gap-[26px] overflow-hidden p-9 ${i === 0 ? "deep rounded-[30px] border border-white/[0.08]" : "card"}`}
-              style={i === 0 ? { boxShadow: "0 40px 80px -40px rgba(10,30,120,0.3)" } : undefined}
-            >
-              {i === 0 ? <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(80% 60% at 100% 0%, rgba(37,99,255,0.45), transparent 65%)" }} /> : null}
-              <svg width="40" height="30" viewBox="0 0 36 28" fill={i === 0 ? "#8DADFF" : "#2563FF"} aria-hidden="true" className="relative">
-                <path d="M0 28V16C0 7 5 1 14 0l1 5c-5 1-8 4-8 9h7v14zm21 0V16c0-9 5-15 14-16l1 5c-5 1-8 4-8 9h7v14z" />
-              </svg>
-              <blockquote className="relative m-0 font-serif text-[22px] font-medium leading-8">{t.quote}</blockquote>
-              <figcaption className="relative mt-auto flex items-center gap-3">
-                <span className={`flex h-11 w-11 items-center justify-center rounded-full font-semibold ${i === 1 ? "bg-[var(--text)] text-[var(--bg)]" : "bg-gradient-to-br from-[#5b8bff] to-[#163fb8] text-white"}`}>
-                  {t.initials}
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-base font-semibold">{t.name}</span>
-                  <span className={`text-sm ${i === 0 ? "text-white/70" : "text-[var(--faint)]"}`}>{t.role}</span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+      </div>
+      <div
+        className="-mx-6 mt-14 overflow-hidden py-6 max-md:-mx-5"
+        style={{ WebkitMaskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)", maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)" }}
+      >
+        <div className="marquee !gap-0 ![animation-duration:60s] hover:![animation-play-state:paused]">
+          {Array.from({ length: copies }, (_, k) =>
+            testimonials.map((t, i) => (
+              <div key={`${k}-${t.name}`} className="flex flex-none pr-5" aria-hidden={k > 0 ? true : undefined}>
+                <figure
+                  className={`relative m-0 flex w-[420px] flex-col gap-[26px] overflow-hidden p-9 max-sm:w-[300px] max-sm:p-7 ${
+                    i === 0 ? "deep rounded-[30px] border border-white/[0.08]" : "card"
+                  }`}
+                  style={i === 0 ? { boxShadow: "0 40px 80px -40px rgba(10,30,120,0.3)" } : undefined}
+                >
+                  {i === 0 ? <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(80% 60% at 100% 0%, rgba(37,99,255,0.45), transparent 65%)" }} /> : null}
+                  <svg width="40" height="30" viewBox="0 0 36 28" fill={i === 0 ? "#8DADFF" : "#2563FF"} aria-hidden="true" className="relative">
+                    <path d="M0 28V16C0 7 5 1 14 0l1 5c-5 1-8 4-8 9h7v14zm21 0V16c0-9 5-15 14-16l1 5c-5 1-8 4-8 9h7v14z" />
+                  </svg>
+                  <blockquote className="relative m-0 font-serif text-[22px] font-medium leading-8 max-sm:text-[19px] max-sm:leading-7">{t.quote}</blockquote>
+                  <figcaption className="relative mt-auto flex items-center gap-3">
+                    <span className={`flex h-11 w-11 items-center justify-center rounded-full font-semibold ${i === 1 ? "bg-[var(--text)] text-[var(--bg)]" : "bg-gradient-to-br from-[#5b8bff] to-[#163fb8] text-white"}`}>
+                      {t.initials}
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-base font-semibold">{t.name}</span>
+                      <span className={`text-sm ${i === 0 ? "text-white/70" : "text-[var(--faint)]"}`}>{t.role}</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
+            )),
+          )}
         </div>
       </div>
     </section>
@@ -652,38 +558,6 @@ function PlanBody({ plan, dark = false }: { plan: (typeof plans)[number]; dark?:
         ))}
       </ul>
     </>
-  );
-}
-
-/* ---------------- trust ---------------- */
-
-export function Trust() {
-  const items = [
-    { icon: <CheckSquare size={20} />, ink: false, t: "Tested before go-live", b: "Every agent passes a call-scenario test suite before it answers a real customer." },
-    { icon: <Shield size={20} />, ink: true, t: "Sticks to what you told it", b: "No invented prices or promises. Anything outside its knowledge goes to your team." },
-    { icon: <File size={20} />, ink: false, t: "Every call on record", b: "Recordings, transcripts and summaries for every conversation, ready for review." },
-    { icon: <Lock size={20} />, ink: true, t: "Your data stays yours", b: "Customer details are used only to serve your callers, never sold or shared." },
-  ];
-  return (
-    <section className="sec !py-[104px]">
-      <div className="wrap flex flex-col gap-12">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="h2 max-w-[660px] !text-[clamp(32px,3.6vw,46px)]">
-            Your customers talk to it. So we built it <span className="grad-text">to be trusted.</span>
-          </h2>
-          <span className="eyebrow">Trust &amp; reliability</span>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((it) => (
-            <div key={it.t} className="card flex flex-col gap-3 p-[26px]">
-              <span className={`icon-tile h-11 w-11 rounded-[13px] ${it.ink ? "ink" : ""}`}>{it.icon}</span>
-              <h3 className="text-lg font-semibold">{it.t}</h3>
-              <p className="body-text text-[15px]">{it.b}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -780,7 +654,7 @@ function FaqHelpCard() {
 
 export function FinalCta({ title = "Your phone will ring today. Make sure someone answers." }: { title?: string }) {
   return (
-    <section className="relative pb-16 pt-6">
+    <section className="relative pt-6">
       <div
         className="relative flex w-full flex-col items-center gap-5 overflow-hidden px-6 py-16 text-center text-white max-md:py-14"
         style={{ background: "radial-gradient(80% 120% at 50% 0%, #3E77FF 0%, #2563FF 35%, #123A9E 75%, #071A52 100%)" }}

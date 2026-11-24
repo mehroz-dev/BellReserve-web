@@ -16,30 +16,32 @@
 :root {
   /* Content width: 1240px on laptops, grows with wider screens up to 1600px. */
   --wrap: clamp(1240px, 86vw, 1600px);
+  /* Light theme, modelled on devsinc.com: white page, #F6F6F6 rounded panels,
+     deep-navy text instead of pure black, hairline #E7EBEE borders, soft shadows. */
   --bg: #ffffff;
-  --bg-alt: #f5f8ff;
+  --bg-alt: #f6f6f6;
   --surface: #ffffff;
-  --surface-2: #f7f9ff;
-  --text: #000000;
-  --muted: rgba(0, 0, 0, 0.66);
-  --faint: rgba(0, 0, 0, 0.58);
-  --border: rgba(0, 0, 0, 0.09);
-  --border-strong: rgba(0, 0, 0, 0.18);
-  --glass: rgba(255, 255, 255, 0.62);
-  --glass-border: rgba(255, 255, 255, 0.9);
-  --chip-bg: rgba(37, 99, 255, 0.07);
-  --chip-border: rgba(37, 99, 255, 0.22);
-  --accent-text: #2563ff;
-  --glow: rgba(37, 99, 255, 0.2);
-  --glow-2: rgba(37, 99, 255, 0.11);
-  --grid-line: rgba(37, 99, 255, 0.14);
-  --shadow: 0 18px 40px -26px rgba(10, 30, 90, 0.16), 0 1px 3px rgba(10, 30, 90, 0.04);
-  --deep: #000000;
+  --surface-2: #f6f7f8;
+  --text: #0b1736;
+  --muted: #4f5a63;
+  --faint: #597282;
+  --border: #e7ebee;
+  --border-strong: #d3dbe0;
+  --glass: rgba(255, 255, 255, 0.88);
+  --glass-border: #e7ebee;
+  --chip-bg: rgba(37, 99, 255, 0.06);
+  --chip-border: rgba(37, 99, 255, 0.2);
+  --accent-text: #1d4fd8;
+  --glow: rgba(37, 99, 255, 0.1);
+  --glow-2: rgba(37, 99, 255, 0.06);
+  --grid-line: rgba(11, 23, 54, 0.08);
+  --shadow: 0 1px 2px rgba(11, 23, 54, 0.04), 0 10px 30px -18px rgba(11, 23, 54, 0.14);
+  --deep: #0b1736;
   --deep-border: transparent;
-  --nav: rgba(255, 255, 255, 0.8);
-  --pattern-line: rgba(20, 40, 110, 0.045);
-  --pattern-dot: rgba(37, 99, 255, 0.12);
-  --alt-tint: rgba(37, 99, 255, 0.028);
+  --nav: rgba(255, 255, 255, 0.88);
+  --pattern-line: rgba(11, 23, 54, 0.04);
+  --pattern-dot: rgba(11, 23, 54, 0.1);
+  --alt-tint: #f6f6f6;
   --grad-a: #2563ff;
   --grad-b: #5e8bff;
   color-scheme: light;
@@ -114,6 +116,27 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 768px) { .sec { padding: 88px 20px; } }
 .soft-alt {
   background: linear-gradient(180deg, transparent 0%, var(--alt-tint) 180px, var(--alt-tint) calc(100% - 180px), transparent 100%);
+}
+/* Light theme: alternate sections become inset grey panels, like devsinc.com. */
+:root:not([data-theme="dark"]) .soft-alt {
+  background: var(--bg-alt);
+  margin-inline: 12px;
+  border-radius: 28px;
+}
+@media (max-width: 768px) {
+  :root:not([data-theme="dark"]) .soft-alt { margin-inline: 8px; border-radius: 22px; }
+}
+/* Dark bands: sections marked data-theme="dark" + .dark-band use the dark tokens inside.
+   In light mode they become inset navy panels (like devsinc.com); in dark mode they blend in. */
+.dark-band { color: var(--text); }
+:root:not([data-theme="dark"]) .dark-band {
+  background: #0b1736;
+  margin-inline: 12px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  :root:not([data-theme="dark"]) .dark-band { margin-inline: 8px; border-radius: 22px; }
 }
 .fade-b {
   position: absolute; left: 0; right: 0; bottom: 0; height: 200px; z-index: 1; pointer-events: none;

@@ -13,7 +13,6 @@ import {
   MeetAgent,
   Pricing,
   Testimonials,
-  Trust,
 } from "@/components/sections/Home";
 import { faqs } from "@/lib/site";
 
@@ -32,7 +31,6 @@ export default function HomePage() {
       <Integrations />
       <Testimonials />
       <Pricing />
-      <Trust />
       <Faq items={faqs} />
       <FinalCta />
     </>
