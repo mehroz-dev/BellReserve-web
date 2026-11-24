@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 export function Footer() {
   const year = 2026;
   return (
-    <footer className="relative overflow-x-clip px-6 pb-10 pt-[72px]">
+    <footer data-theme="dark" className="dark-band relative !mx-0 overflow-x-clip !rounded-none px-6 pb-10 pt-[72px]">
       <div className="wrap flex flex-col gap-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div className="flex min-w-0 flex-col gap-4">

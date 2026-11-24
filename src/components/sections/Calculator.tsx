@@ -18,7 +18,7 @@ export function Calculator() {
 
   return (
     <section id="calculator" className="sec">
-      <div className="wrap grid items-center gap-16 lg:grid-cols-2">
+      <div className="wrap grid items-center gap-16 lg:grid-cols-[3fr_2fr]">
         <div className="flex flex-col gap-6">
           <span className="eyebrow">What missed calls cost you</span>
           <h2 className="h2">
