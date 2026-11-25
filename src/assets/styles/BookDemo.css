@@ -1,0 +1,134 @@
+/* /book-demo page: intro on the left, form card on the right. */
+
+.book-demo {
+  padding-top: 80px;
+}
+
+.book-demo__glow {
+  left: -260px;
+  top: -120px;
+  width: 760px;
+  height: 620px;
+  background: var(--glow);
+}
+
+.book-demo__grid {
+  display: grid;
+  align-items: start;
+  gap: 56px;
+}
+
+.book-demo__intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.book-demo__title {
+  font-size: clamp(40px, 5vw, 68px);
+}
+
+.book-demo__points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.book-demo__point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16.5px;
+}
+
+.book-demo__point-icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--accent-text);
+}
+
+.book-demo__call {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.book-demo__call-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-demo__call-title {
+  font-weight: 600;
+}
+
+.book-demo__call-number {
+  color: var(--accent-text);
+  font-size: 15px;
+}
+
+.book-demo__sphere {
+  position: absolute;
+  right: -24px;
+  top: -40px;
+  display: none;
+  pointer-events: none;
+}
+
+.book-demo__card {
+  position: relative;
+  padding: 36px;
+}
+
+.book-demo__card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.book-demo__card-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-demo__card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.book-demo__card-subtitle {
+  color: var(--faint);
+  font-size: 14px;
+}
+
+@media (max-width: 639px) {
+  .book-demo__card {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-demo__grid {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .book-demo__intro {
+    position: sticky;
+    top: 112px;
+  }
+
+  .book-demo__sphere {
+    display: block;
+  }
+}

@@ -1,0 +1,51 @@
+/* Styles for the globally reusable components in custom.components.jsx and vectors.component.jsx. */
+
+/* ---------- Logo ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  width: auto;
+}
+
+.logo__image.show-light {
+  display: block;
+}
+
+[data-theme="dark"] .logo__image.show-light {
+  display: none;
+}
+
+.logo--sm .logo__image {
+  height: 30px;
+}
+
+.logo--md .logo__image {
+  height: 36px;
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--glass);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--brand);
+}
+
+/* ---------- Shared SVG gradient definitions ---------- */
+.vector-defs {
+  position: absolute;
+}
