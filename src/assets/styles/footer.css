@@ -1,0 +1,87 @@
+/* Site footer: dark band that runs full width in light mode too. */
+
+.site-footer {
+  position: relative;
+  overflow-x: clip;
+  padding: 72px 24px 40px;
+}
+
+/* The footer is a .dark-band, but unlike the other bands it is not inset or rounded. */
+:root:not([data-theme="dark"]) .site-footer.dark-band {
+  margin-inline: 0;
+  border-radius: 0;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 40px;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.site-footer__about {
+  max-width: 320px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.footer-column a:hover {
+  color: var(--accent-text);
+}
+
+.footer-column__title {
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-column__cta {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--faint);
+  font-size: 14px;
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__grid {
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  }
+}

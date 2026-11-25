@@ -1,0 +1,64 @@
+/* /industries page: grid of industry cards. */
+
+.industries-page__glow {
+  right: -200px;
+  top: -160px;
+  width: 760px;
+  height: 560px;
+  background: var(--glow);
+}
+
+.industries-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.industries-page__grid {
+  display: grid;
+  gap: 20px;
+}
+
+.industry-link {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+}
+
+.industry-link__kicker {
+  color: var(--accent-text);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.industry-link__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.industry-link__arrow {
+  transition: transform 0.2s ease;
+}
+
+.industry-link:hover .industry-link__arrow {
+  transform: translateX(4px);
+}
+
+@media (min-width: 768px) {
+  .industries-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .industries-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

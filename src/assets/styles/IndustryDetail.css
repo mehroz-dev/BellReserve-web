@@ -1,0 +1,266 @@
+/* /industries/:slug pages: hero, pains, live example, capabilities and other industries. */
+
+/* ---------- Hero ---------- */
+.industry-hero {
+  position: relative;
+  overflow-x: clip;
+  padding: 80px 24px 96px;
+}
+
+.industry-hero__glow--right {
+  right: -220px;
+  top: -120px;
+  width: 760px;
+  height: 620px;
+  background: var(--glow);
+}
+
+.industry-hero__glow--left {
+  left: -260px;
+  top: 120px;
+  width: 600px;
+  height: 600px;
+  background: var(--glow-2);
+}
+
+.industry-hero__grid {
+  display: grid;
+  align-items: center;
+  gap: 48px;
+}
+
+.industry-hero__copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.industry-hero__breadcrumb {
+  color: var(--faint);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.industry-hero__breadcrumb a:hover,
+.industry-hero__breadcrumb-current {
+  color: var(--accent-text);
+}
+
+.industry-hero__title {
+  font-size: clamp(42px, 5.4vw, 76px);
+}
+
+.industry-hero__intro {
+  max-width: 600px;
+}
+
+.industry-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.industry-hero__visual {
+  position: relative;
+  display: none;
+  height: 420px;
+}
+
+.industry-hero__sphere {
+  position: absolute;
+  left: 8%;
+  top: 6%;
+}
+
+.industry-hero__cube {
+  position: absolute;
+  right: 6%;
+  bottom: 4%;
+}
+
+.industry-hero__outcome {
+  position: absolute;
+  left: 2%;
+  bottom: 18%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  animation-delay: -2s;
+}
+
+.industry-hero__outcome-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.industry-hero__outcome-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.industry-hero__outcome-subtitle {
+  color: var(--faint);
+  font-size: 12px;
+}
+
+/* ---------- Pains ---------- */
+.industry-pains {
+  padding-top: 32px;
+}
+
+.industry-pains__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.industry-pains__grid {
+  display: grid;
+  gap: 20px;
+}
+
+.industry-pain {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+}
+
+.industry-pain__number {
+  color: var(--accent-text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---------- Live example band ---------- */
+.industry-example {
+  padding-block: 48px;
+}
+
+.industry-example__band {
+  position: relative;
+  max-width: calc(var(--wrap) + 152px);
+  margin-inline: auto;
+  overflow: hidden;
+  padding: 96px 32px;
+  border: 1px solid var(--deep-border);
+  border-radius: 48px;
+}
+
+.industry-example__glow {
+  left: 50%;
+  top: -320px;
+  width: 900px;
+  height: 600px;
+  margin-left: -450px;
+  background: rgba(37, 99, 255, 0.45);
+}
+
+.industry-example__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.industry-example__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.industry-example__title {
+  max-width: 860px;
+}
+
+/* ---------- Capabilities ---------- */
+.industry-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.industry-capabilities__grid {
+  display: grid;
+  gap: 20px;
+}
+
+.industry-capability {
+  display: flex;
+  gap: 20px;
+  padding: 32px;
+}
+
+.industry-capability__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- Other industries ---------- */
+.other-industries {
+  padding-top: 0;
+  padding-bottom: 64px;
+}
+
+.other-industries__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.other-industries__label {
+  color: var(--faint);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.other-industries__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+  .industry-hero {
+    padding-inline: 20px;
+  }
+
+  .industry-example {
+    padding-inline: 12px;
+  }
+
+  .industry-example__band {
+    padding: 64px 20px;
+    border-radius: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .industry-pains__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .industry-capabilities__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .industry-hero__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .industry-hero__visual {
+    display: block;
+  }
+}

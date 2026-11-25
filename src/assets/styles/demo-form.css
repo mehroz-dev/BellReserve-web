@@ -1,0 +1,88 @@
+/* Demo request form (book-demo page). */
+
+.demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.demo-form__grid {
+  display: grid;
+  gap: 20px;
+}
+
+.demo-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-form__label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.demo-form__optional {
+  color: var(--faint);
+}
+
+.demo-form__error {
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.demo-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.demo-form__plan {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.demo-form__plan-name {
+  text-transform: capitalize;
+}
+
+.demo-form__alert {
+  padding: 12px 16px;
+  border: 1px solid rgba(217, 48, 37, 0.3);
+  border-radius: 12px;
+  background: rgba(217, 48, 37, 0.1);
+  font-size: 14px;
+}
+
+.demo-form__consent {
+  color: var(--faint);
+  font-size: 13px;
+}
+
+.demo-form__consent-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Success message ---------- */
+.demo-form__success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 8px;
+}
+
+.demo-form__success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .demo-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
