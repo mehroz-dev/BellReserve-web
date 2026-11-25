@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BellReserve · AI calling agent that answers every call</title>
+    <meta
+      name="description"
+      content="BellReserve is an AI calling agent trained for your business. It answers every call 24/7, books appointments and captures leads, so a missed call never turns into lost revenue."
+    />
+    <link rel="canonical" href="https://bellreserve.com/" />
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070a12" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BellReserve" />
+    <meta property="og:title" content="BellReserve · Never miss another call" />
+    <meta
+      property="og:description"
+      content="BellReserve is an AI calling agent trained for your business. It answers every call 24/7, books appointments and captures leads, so a missed call never turns into lost revenue."
+    />
+    <meta property="og:image" content="https://bellreserve.com/og-image.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="BellReserve · Never miss another call" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Applies the saved or system theme before the first paint, so there is no flash. -->
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("br-theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : prefersDark ? "dark" : "light";
+
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

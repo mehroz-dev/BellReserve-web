@@ -1,0 +1,60 @@
+/* "How it works" three-step section (home and industry pages). */
+
+.how-it-works__glow {
+  right: -200px;
+  bottom: 80px;
+  width: 600px;
+  height: 400px;
+  background: var(--glow-2);
+}
+
+.how-it-works {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.how-it-works__steps {
+  position: relative;
+  display: grid;
+  gap: 20px;
+}
+
+.how-it-works__connector {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 74px;
+  display: none;
+  height: 2px;
+  opacity: 0.5;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #2563ff 20%, #2563ff 80%, transparent);
+}
+
+.how-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 36px;
+}
+
+.how-step__tag {
+  margin-top: auto;
+  color: var(--faint);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .how-it-works__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .how-it-works__connector {
+    display: block;
+  }
+}
